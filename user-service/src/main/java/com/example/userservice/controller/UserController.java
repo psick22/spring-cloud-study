@@ -24,6 +24,7 @@ public class UserController {
 
     private final Environment env;
     private final Greeting greeting;
+    private final ModelMapper mapper;
     private final UserService userService;
 
     @GetMapping("/health-check")
@@ -40,8 +41,6 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
 
-        ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDto userDto = mapper.map(user, UserDto.class);
 
         UserDto created = userService.createUser(userDto);
