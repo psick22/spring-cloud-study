@@ -10,13 +10,13 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.example</groupId>
-  <artifactId>apigateway-service</artifactId>
+  <artifactId>apigateway-service-v2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>apigateway-service</name>
+  <name>apigateway-service-v2</name>
   <description>Demo project for Spring Boot</description>
   <properties>
     <java.version>11</java.version>
-    <spring-cloud.version>2020.0.3</spring-cloud.version>
+    <spring-cloud.version>Hoxton.SR11</spring-cloud.version>
   </properties>
   <dependencies>
     <dependency>
@@ -37,11 +37,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-resolver-dns-native-macos</artifactId>
-      <version>4.1.65.Final</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
   <dependencyManagement>
