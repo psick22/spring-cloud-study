@@ -17,10 +17,12 @@ spring:
           predicates:
             - Path=/first-service/**
           filters:
-            - CustomFilter
+            - AddRequestHeader=first-request, first-request-header2 # key, value
+            - AddResponseHeader=first-response, first-response-header2 # key, value
         - id: second-service
           uri: http://127.0.0.1:8082/
           predicates:
             - Path=/second-service/**
           filters:
-            - CustomFilter
+            - AddRequestHeader=second-request, second-request-header2 # key, value
+            - AddResponseHeader=second-response, second-response-header2 # key, value

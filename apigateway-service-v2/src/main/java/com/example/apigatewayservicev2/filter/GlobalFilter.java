@@ -1,5 +1,6 @@
 package com.example.apigatewayservicev2.filter;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -10,30 +11,40 @@ import reactor.core.publisher.Mono;
 
 @Component
 @Slf4j
-public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Config> {
+public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Config> {
 
-    public CustomFilter() {
+    public GlobalFilter() {
         super(Config.class);
     }
 
     @Override
     public GatewayFilter apply(Config config) {
-        // Custom Pre filter
+        // Custom PRE filter
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
             ServerHttpResponse response = exchange.getResponse();
-            log.info("Custom Pre Filter : request id -> {}", request.getId());
+            log.info("Global Filter baseMessage : {}", config.getBaseMessage());
+            if (config.isPreLogger()) {
+                log.info("Global Filter Start : request id -> {}", request.getId());
+            }
 
             // custom POST filter
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {
-                log.info("Custom Post Filter : response status -> {}", response.getStatusCode());
+                if (config.isPostLogger()) {
+                    log.info("Global Filter End : response code -> {}", response.getStatusCode());
+                }
             }));
 
         };
     }
 
-    public static class Config {
-        // Put the configuration properties
 
+    @Data
+    public static class Config {
+
+        private String baseMessage;
+        private boolean preLogger;
+        private boolean postLogger;
     }
+
 }

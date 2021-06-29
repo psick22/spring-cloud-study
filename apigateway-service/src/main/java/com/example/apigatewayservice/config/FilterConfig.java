@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
-//@Configuration
+@Configuration
 public class FilterConfig {
 
-//    @Bean
+    @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
             .route(r -> r.path("/first-service/**")

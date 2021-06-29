@@ -11,6 +11,12 @@ spring:
     name: apigateway-service
   cloud:
     gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
       routes:
         - id: first-service
           uri: http://127.0.0.1:8081/
@@ -18,9 +24,15 @@ spring:
             - Path=/first-service/**
           filters:
             - CustomFilter
+
         - id: second-service
           uri: http://127.0.0.1:8082/
           predicates:
             - Path=/second-service/**
           filters:
             - CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Logging...
+                preLogger: true
+                postLogger: true
