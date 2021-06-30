@@ -27,7 +27,10 @@ public class Order implements Serializable { //
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 120, unique = true)
+    @Column(nullable = false, unique = true)
+    private String orderId;
+
+    @Column(nullable = false, length = 120)
     private String productId;
 
     @Column(nullable = false)
@@ -42,8 +45,6 @@ public class Order implements Serializable { //
     @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false, unique = true)
-    private String orderId;
 
     @Column(nullable = false, updatable = false, insertable = false)
     @ColumnDefault(value = "CURRENT_TIMESTAMP")
