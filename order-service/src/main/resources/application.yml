@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: user-service
+    name: order-service
   h2:
     console:
       enabled: true
@@ -18,7 +18,6 @@ spring:
       ddl-auto: create-drop
 
 
-
 eureka:
   client:
     fetch-registry: true
@@ -27,6 +26,6 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
-greeting:
-  message: Welcome!
+logging:
+  level:
+    com.example.orderservice: debug

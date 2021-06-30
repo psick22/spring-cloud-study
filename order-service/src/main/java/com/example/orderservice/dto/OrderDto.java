@@ -1,10 +1,10 @@
-package com.example.catalogservice.dto;
+package com.example.orderservice.dto;
 
 import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class CatalogDto implements Serializable {
+public class OrderDto implements Serializable {
 
     private String productId;
     private Integer qty;
