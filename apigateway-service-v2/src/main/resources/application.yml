@@ -24,15 +24,20 @@ spring:
             - Path=/user-service/**
           filters:
             - CustomFilter
-
-        - id: second-service
-          uri: lb://MY-SECOND-SERVICE
+        - id: catalog-service
+          uri: lb://CATALOG-SERVICE
           predicates:
-            - Path=/second-service/**
+            - Path=/catalog-service/**
           filters:
             - CustomFilter
-            - name: LoggingFilter
-              args:
-                baseMessage: Logging...
-                preLogger: true
-                postLogger: true
+#        - id: second-service
+#          uri: lb://MY-SECOND-SERVICE
+#          predicates:
+#            - Path=/second-service/**
+#          filters:
+#            - CustomFilter
+#            - name: LoggingFilter
+#              args:
+#                baseMessage: Logging...
+#                preLogger: true
+#                postLogger: true
