@@ -6,6 +6,7 @@ import com.example.userservice.repository.UserRepository;
 import com.example.userservice.vo.ResponseOrder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -55,6 +56,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public Iterable<UserEntity> getUserByAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public UserDto getUserDetailsByEmail(String email) {
+        UserEntity findUser = userRepository.findByEmail(email)
+            .orElseThrow(() -> new UsernameNotFoundException(email));
+
+        return mapper.map(findUser, UserDto.class);
     }
 
     @Override

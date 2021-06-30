@@ -30,3 +30,11 @@ eureka:
 
 greeting:
   message: Welcome!
+
+logging:
+  level:
+    com.example.userservice: debug
+
+token:
+  expiration_time: 86400000
+  secret_key: userToken
