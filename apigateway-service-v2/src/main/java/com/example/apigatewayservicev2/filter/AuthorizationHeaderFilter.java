@@ -53,8 +53,7 @@ public class AuthorizationHeaderFilter extends
         try {
             subject =
                 Jwts.parser()
-                    .setSigningKey("userToken")
-//                    .setSigningKey(env.getProperty("token.secret_key"))
+                    .setSigningKey(env.getProperty("token.secret_key"))
                     .parseClaimsJws(jwt)
                     .getBody()
                     .getSubject();
