@@ -5,11 +5,13 @@ import com.example.userservice.dto.UserDto;
 import com.example.userservice.repository.UserEntity;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.vo.ResponseOrder;
+import feign.FeignException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
@@ -24,6 +26,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final Environment env;
@@ -67,6 +70,18 @@ public class UserServiceImpl implements UserService {
 
         /**
          * Feign Client 방식
+         */
+//        List<ResponseOrder> orders = null;
+//
+//        try {
+//            orders = orderServiceClient.getOrders(userId);
+//
+//        } catch (FeignException e) {
+//            log.error(e.getMessage());
+//        }
+
+        /**
+         * Error Decoder 이용
          */
         List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
         userDto.setOrders(orders);
