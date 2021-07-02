@@ -10,19 +10,26 @@ import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
+    private final Environment env;
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder encoder;
     private final ModelMapper mapper;
+    private final RestTemplate restTemplate;
 
 
     @Override
@@ -45,10 +52,16 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("User not found");
         }
         UserDto userDto = mapper.map(userEntity, UserDto.class);
-//
-//        String orderUrl = "http://127.0.0.1:8000/order-service/%s/orders";
 
-        List<ResponseOrder> orders = new ArrayList<>();
+        String orderUrl = String.format(env.getProperty("order_service.url"), userId);
+
+        ResponseEntity<List<ResponseOrder>> ordersResponse
+            = restTemplate.exchange(orderUrl, HttpMethod.GET, null,
+            new ParameterizedTypeReference<List<ResponseOrder>>() {
+            });
+
+        List<ResponseOrder> orders = ordersResponse.getBody();
+
         userDto.setOrders(orders);
 
         return userDto;

@@ -52,8 +52,6 @@ public class OrderController {
     public ResponseEntity<List<ResponseOrder>> getOrder(@PathVariable("userId") String userId) {
         List<Order> findOrders = orderService.getOrdersByUserId(userId);
         List<ResponseOrder> responseOrders = mapList(findOrders, ResponseOrder.class);
-
         return ResponseEntity.status(HttpStatus.OK).body(responseOrders);
-
     }
 }
