@@ -45,6 +45,8 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException("User not found");
         }
         UserDto userDto = mapper.map(userEntity, UserDto.class);
+//
+//        String orderUrl = "http://127.0.0.1:8000/order-service/%s/orders";
 
         List<ResponseOrder> orders = new ArrayList<>();
         userDto.setOrders(orders);

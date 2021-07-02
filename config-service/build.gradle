@@ -16,6 +16,11 @@ ext {
     set('springCloudVersion', "2020.0.3")
 }
 
+bootRun {
+    jvmArgs = ["-Dspring.output.ansi.enabled=ALWAYS"]
+}
+
+
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-config-server'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
