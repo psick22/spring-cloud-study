@@ -7,3 +7,6 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+    registry-fetch-interval-seconds: 10
+  server:
+    response-cache-update-interval-ms: 1000
