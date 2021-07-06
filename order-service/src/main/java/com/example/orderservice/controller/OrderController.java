@@ -47,19 +47,20 @@ public class OrderController {
         @RequestBody RequestOrder order) {
 
         OrderDto orderDto = mapper.map(order, OrderDto.class);
+        orderDto.setUserId(userId);
 
         // JPA
-//        orderDto.setUserId(userId);
 //        OrderDto createdOrder = orderService.createOrder(orderDto);
+//        ResponseOrder result = mapper.map(createdOrder, ResponseOrder.class);
 
         // kafka -> orderService.createOrder의 로직을 바로 구현 -> 따로 서비스로 빼는 것이 더 좋지 않을지?
         orderDto.setOrderId(UUID.randomUUID().toString());
         orderDto.setTotalPrice(orderDto.getUnitPrice() * orderDto.getQty());
 
-        ResponseOrder result = mapper.map(orderDto, ResponseOrder.class);
-
         kafkaProducer.send("example-catalog-topic", orderDto);
         orderProducer.send("orders", orderDto);
+
+        ResponseOrder result = mapper.map(orderDto, ResponseOrder.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
