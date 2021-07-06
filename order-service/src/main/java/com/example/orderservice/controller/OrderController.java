@@ -6,10 +6,12 @@ import com.example.orderservice.common.MapUtils;
 import com.example.orderservice.dto.OrderDto;
 import com.example.orderservice.entity.Order;
 import com.example.orderservice.messagequeue.KafkaProducer;
+import com.example.orderservice.messagequeue.OrderProducer;
 import com.example.orderservice.service.OrderService;
 import com.example.orderservice.vo.RequestOrder;
 import com.example.orderservice.vo.ResponseOrder;
 import java.util.List;
+import java.util.UUID;
 import javax.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -33,6 +35,7 @@ public class OrderController {
     private final ModelMapper mapper;
     private final OrderService orderService;
     private final KafkaProducer kafkaProducer;
+    private final OrderProducer orderProducer;
 
     @GetMapping("/health-check")
     public String status() {
@@ -42,12 +45,21 @@ public class OrderController {
     @PostMapping("/{userId}/orders")
     public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
         @RequestBody RequestOrder order) {
-        OrderDto orderDto = mapper.map(order, OrderDto.class);
-        orderDto.setUserId(userId);
-        OrderDto createdOrder = orderService.createOrder(orderDto);
-        ResponseOrder result = mapper.map(createdOrder, ResponseOrder.class);
 
-        kafkaProducer.send("example-catalog-topic", createdOrder);
+        OrderDto orderDto = mapper.map(order, OrderDto.class);
+
+        // JPA
+//        orderDto.setUserId(userId);
+//        OrderDto createdOrder = orderService.createOrder(orderDto);
+
+        // kafka -> orderService.createOrder의 로직을 바로 구현 -> 따로 서비스로 빼는 것이 더 좋지 않을지?
+        orderDto.setOrderId(UUID.randomUUID().toString());
+        orderDto.setTotalPrice(orderDto.getUnitPrice() * orderDto.getQty());
+
+        ResponseOrder result = mapper.map(orderDto, ResponseOrder.class);
+
+        kafkaProducer.send("example-catalog-topic", orderDto);
+        orderProducer.send("orders", orderDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
