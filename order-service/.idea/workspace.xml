@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6acc1e6-ede5-44b6-9481-721ec3079c11" name="Default Changelist" comment="# (#이슈번호) &quot;유형: 제목&quot;&#10;##### Subject 50 characters ################# -&gt; |&#10;&#10;&#10;# &quot;본문&quot; (bullet point(-) 로 상세하게)&#10;######## Body 72 characters ####################################### -&gt; |&#10;&#10;# 이슈트래커 &quot;유형:#이슈번호&quot;&#10;&#10;# --- COMMIT END ---&#10;# &lt;&lt; 제목 유형 &gt;&gt;&#10;#   기능추가 : 기능 추가    &#10;#   기능삭제 : 기능 삭제    &#10;#   기능변경 : 기능 변경&#10;#   버그 : 버그 수정  &#10;#   리팩토링 : 코드 리팩토링&#10;#   형식 : 코드 형식, 정렬, 주석 등의 변경&#10;#   테스트 : 테스트 코드 관련 변경 (추가, 삭제, 변경 등)&#10;#   문서 : 문서 혹은 주석의 추가, 삭제, 변경&#10;#   프로젝트 : 프로젝트 관리 측면에서의 변경 (빌드 스크립트, git 설정, 패키지 관련 변경)&#10;#   기타&#10;# ------------------&#10;# &lt;&lt; 이슈트래커 유형 &gt;&gt;&#10;#   해결 : 이슈 해결&#10;#   관련 : 해당 커밋에 관련된 이슈번호 (미해결)&#10;#   참고 : 참고할 이슈&#10;# ------------------">
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/error/FeignErrorDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/messagequeue/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/messagequeue/KafkaConsumerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/orderservice/messagequeue/KafkaProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/orderservice/messagequeue/KafkaProducerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../catalog-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/orderservice/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/client/OrderServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/client/OrderServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +59,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/orderservice/vo/ResponseOrder.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
@@ -92,7 +99,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -109,6 +116,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="order-service.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.orderservice.OrderServiceApplication" />
@@ -128,7 +148,10 @@
       <workItem from="1625024481496" duration="4813000" />
       <workItem from="1625030498096" duration="968000" />
       <workItem from="1625031493924" duration="72000" />
-      <workItem from="1625198499228" duration="6557000" />
+      <workItem from="1625198499228" duration="9705000" />
+      <workItem from="1625541581099" duration="42000" />
+      <workItem from="1625541626060" duration="216000" />
+      <workItem from="1625541862842" duration="6816000" />
     </task>
     <servers />
   </component>
@@ -144,15 +167,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/orderservice/controller/OrderController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
