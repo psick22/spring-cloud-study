@@ -6,6 +6,7 @@ import com.example.userservice.service.UserService;
 import com.example.userservice.vo.Greeting;
 import com.example.userservice.vo.RequestUser;
 import com.example.userservice.vo.ResponseUser;
+import io.micrometer.core.annotation.Timed;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -31,15 +32,17 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/health-check")
+    @Timed(value = "users.status", longTask = true)
     public String status() {
         return "User Service is now working, "
             + "port(local.server.port)=" + env.getProperty("local.server.port")
-            + ", port(server.port)=" + env.getProperty("server.port")
+            + ", port(server.port)SS=" + env.getProperty("server.port")
             + ", token secret=" + env.getProperty("token.secret_key")
             + ", token expiration time=" + env.getProperty("token.expiration_time");
     }
 
     @GetMapping("/welcome")
+    @Timed(value = "users.welcome", longTask = true)
     public String welcome() {
 //        return env.getProperty("greeting.message");
         return greeting.getMessage();

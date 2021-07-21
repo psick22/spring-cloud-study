@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.UUID;
 import javax.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.env.Environment;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/order-service")
 @RequiredArgsConstructor
@@ -45,7 +48,7 @@ public class OrderController {
     @PostMapping("/{userId}/orders")
     public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
         @RequestBody RequestOrder order) {
-
+        log.info("before add orders data");
         OrderDto orderDto = mapper.map(order, OrderDto.class);
         orderDto.setUserId(userId);
 
@@ -61,14 +64,20 @@ public class OrderController {
 //        orderProducer.send("orders", orderDto);
 
 //        ResponseOrder result = mapper.map(orderDto, ResponseOrder.class);
+        log.info("after add orders data");
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     @GetMapping("/{userId}/orders")
     public ResponseEntity<List<ResponseOrder>> getOrder(@PathVariable("userId") String userId) {
+        log.info("before retrieve orders data");
+
         List<Order> findOrders = orderService.getOrdersByUserId(userId);
         List<ResponseOrder> responseOrders = mapList(findOrders, ResponseOrder.class);
+        log.info("after received orders data");
+
         return ResponseEntity.status(HttpStatus.OK).body(responseOrders);
+
     }
 }

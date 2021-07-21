@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6acc1e6-ede5-44b6-9481-721ec3079c11" name="Default Changelist" comment="# (#이슈번호) &quot;유형: 제목&quot;&#10;##### Subject 50 characters ################# -&gt; |&#10;&#10;&#10;# &quot;본문&quot; (bullet point(-) 로 상세하게)&#10;######## Body 72 characters ####################################### -&gt; |&#10;&#10;# 이슈트래커 &quot;유형:#이슈번호&quot;&#10;&#10;# --- COMMIT END ---&#10;# &lt;&lt; 제목 유형 &gt;&gt;&#10;#   기능추가 : 기능 추가    &#10;#   기능삭제 : 기능 삭제    &#10;#   기능변경 : 기능 변경&#10;#   버그 : 버그 수정  &#10;#   리팩토링 : 코드 리팩토링&#10;#   형식 : 코드 형식, 정렬, 주석 등의 변경&#10;#   테스트 : 테스트 코드 관련 변경 (추가, 삭제, 변경 등)&#10;#   문서 : 문서 혹은 주석의 추가, 삭제, 변경&#10;#   프로젝트 : 프로젝트 관리 측면에서의 변경 (빌드 스크립트, git 설정, 패키지 관련 변경)&#10;#   기타&#10;# ------------------&#10;# &lt;&lt; 이슈트래커 유형 &gt;&gt;&#10;#   해결 : 이슈 해결&#10;#   관련 : 해당 커밋에 관련된 이슈번호 (미해결)&#10;#   참고 : 참고할 이슈&#10;# ------------------">
-      <change afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/config/Resilience4jConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apigateway-service-v2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../apigateway-service-v2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apigateway-service-v2/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../apigateway-service-v2/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/orderservice/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +180,7 @@
       <workItem from="1625541626060" duration="216000" />
       <workItem from="1625541862842" duration="17952000" />
       <workItem from="1626805377228" duration="13000" />
-      <workItem from="1626832103099" duration="301000" />
+      <workItem from="1626832103099" duration="5328000" />
     </task>
     <servers />
   </component>

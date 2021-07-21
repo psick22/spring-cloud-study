@@ -88,11 +88,11 @@ public class UserServiceImpl implements UserService {
          * Error Decoder 이용
          */
 //        List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
-
+        log.info("before call orders microservice");
         CircuitBreaker circuitbreaker = circuitBreakerFactory.create("circuitbreaker");
         List<ResponseOrder> orderList = circuitbreaker
             .run(() -> orderServiceClient.getOrders(userId), throwable -> new ArrayList<>());
-
+        log.info("after called orders microservice");
         userDto.setOrders(orderList);
 
         return userDto;
