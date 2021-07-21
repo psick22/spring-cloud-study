@@ -1,6 +1,7 @@
 encrypt:
-  #  key: dfa;lskdfkdffffffffjls;dfnkl;ll12349dkajdknnn
+  #  key: myKey
   key-store:
-    location: file://${user.home}/projects/playground/config/keystore/apikey.jks
+    #    location: file://${user.home} /projects/playground/config/keystore/apikey.jks
+    location: file:/apikey.jks
     password: test123123
     alias: apikey
