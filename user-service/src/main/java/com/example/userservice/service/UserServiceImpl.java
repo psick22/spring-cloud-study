@@ -6,6 +6,7 @@ import com.example.userservice.repository.UserEntity;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.vo.ResponseOrder;
 import feign.FeignException;
+import feign.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,8 @@ import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
@@ -35,6 +38,7 @@ public class UserServiceImpl implements UserService {
     private final ModelMapper mapper;
     //    private final RestTemplate restTemplate;
     private final OrderServiceClient orderServiceClient;
+    private final CircuitBreakerFactory circuitBreakerFactory;
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -83,8 +87,13 @@ public class UserServiceImpl implements UserService {
         /**
          * Error Decoder 이용
          */
-        List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
-        userDto.setOrders(orders);
+//        List<ResponseOrder> orders = orderServiceClient.getOrders(userId);
+
+        CircuitBreaker circuitbreaker = circuitBreakerFactory.create("circuitbreaker");
+        List<ResponseOrder> orderList = circuitbreaker
+            .run(() -> orderServiceClient.getOrders(userId), throwable -> new ArrayList<>());
+
+        userDto.setOrders(orderList);
 
         return userDto;
 
