@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61ab0010-c7f8-47aa-b611-d373f53851ce" name="Default Changelist" comment="# (#이슈번호) &quot;유형: 제목&quot;&#10;##### Subject 50 characters ################# -&gt; |&#10;&#10;&#10;# &quot;본문&quot; (bullet point(-) 로 상세하게)&#10;######## Body 72 characters ####################################### -&gt; |&#10;&#10;# 이슈트래커 &quot;유형:#이슈번호&quot;&#10;&#10;# --- COMMIT END ---&#10;# &lt;&lt; 제목 유형 &gt;&gt;&#10;#   기능추가 : 기능 추가    &#10;#   기능삭제 : 기능 삭제    &#10;#   기능변경 : 기능 변경&#10;#   버그 : 버그 수정  &#10;#   리팩토링 : 코드 리팩토링&#10;#   형식 : 코드 형식, 정렬, 주석 등의 변경&#10;#   테스트 : 테스트 코드 관련 변경 (추가, 삭제, 변경 등)&#10;#   문서 : 문서 혹은 주석의 추가, 삭제, 변경&#10;#   프로젝트 : 프로젝트 관리 측면에서의 변경 (빌드 스크립트, git 설정, 패키지 관련 변경)&#10;#   기타&#10;# ------------------&#10;# &lt;&lt; 이슈트래커 유형 &gt;&gt;&#10;#   해결 : 이슈 해결&#10;#   관련 : 해당 커밋에 관련된 이슈번호 (미해결)&#10;#   참고 : 참고할 이슈&#10;# ------------------">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/catalogservice/messagequeue/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/catalogservice/messagequeue/KafkaConsumerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../order-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/com/example/orderservice/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/com/example/orderservice/controller/OrderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +24,26 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="catalog-service" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="catalog-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="catalog-service" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -103,19 +119,59 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Gradle.catalog-service [build]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="catalog-service [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="catalog-service [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="CatalogServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="catalog-service.main" />
@@ -124,6 +180,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.catalog-service [build]" />
+        <item itemvalue="Gradle.catalog-service [clean]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -135,6 +197,7 @@
       <updated>1625015798978</updated>
       <workItem from="1625015800456" duration="8950000" />
       <workItem from="1625550030678" duration="6483000" />
+      <workItem from="1626942746058" duration="1600000" />
     </task>
     <servers />
   </component>
