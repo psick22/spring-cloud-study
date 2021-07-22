@@ -60,7 +60,8 @@ public class OrderController {
 //        orderDto.setOrderId(UUID.randomUUID().toString());
 //        orderDto.setTotalPrice(orderDto.getUnitPrice() * orderDto.getQty());
 //
-//        kafkaProducer.send("example-catalog-topic", orderDto);
+        // send this order to the kafka
+        kafkaProducer.send("example-catalog-topic", orderDto);
 //        orderProducer.send("orders", orderDto);
 
 //        ResponseOrder result = mapper.map(orderDto, ResponseOrder.class);
